@@ -102,7 +102,7 @@ export default function Hero() {
             marginBottom: "24px",
           }}
         >
-          Security Engineer · AI Builder · Product Thinker
+          Platform Engineer · AI Whisperer · Product Alchemist
         </motion.h2>
 
         <motion.p
