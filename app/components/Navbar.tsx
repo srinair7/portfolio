@@ -59,7 +59,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
+            href="/Srikesh_Resume.pdf"
             download
             className="btn-primary"
             style={{ padding: "8px 18px", fontSize: "0.85rem" }}

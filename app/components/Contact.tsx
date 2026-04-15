@@ -78,26 +78,16 @@ export default function Contact() {
             Download my Resume
           </h3>
           <p style={{ color: "#94a3b8", fontSize: "0.9rem", marginBottom: "24px", lineHeight: 1.7 }}>
-            Available in versions tailored for Security Engineering, AI Engineering,
-            and Product Management roles.
+            A full overview of my experience across security engineering, AI development, and product leadership.
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {[
-              { label: "Security Engineer CV", file: "Srikesh_Resume_SecurityEngineer.pdf" },
-              { label: "AI Engineer CV", file: "Srikesh_Resume_AIEngineer.pdf" },
-              { label: "Product Manager CV", file: "Srikesh_Resume_ProductManager.pdf" },
-            ].map((r) => (
-              <a
-                key={r.label}
-                href={`/${r.file}`}
-                download
-                className="btn-outline"
-                style={{ textAlign: "center", fontSize: "0.85rem" }}
-              >
-                ⬇ {r.label}
-              </a>
-            ))}
-          </div>
+          <a
+            href="/Srikesh_Resume.pdf"
+            download
+            className="btn-primary"
+            style={{ textAlign: "center", fontSize: "0.85rem", display: "block" }}
+          >
+            ⬇ Download Resume
+          </a>
         </div>
       </div>
 

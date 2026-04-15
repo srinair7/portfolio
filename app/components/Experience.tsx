@@ -1,28 +1,18 @@
 const experiences = [
   {
-    role: "Associate DevOps Engineer – Security SME",
-    company: "SAP AI CloudOps and Security, SAP Labs India",
-    period: "Mar 2024 – Present",
+    role: "Associate DevOps Engineer",
+    company: "SAP Labs India",
+    period: "Aug 2021 – Present",
     location: "Bangalore, India",
     bullets: [
       "Subject Matter Expert for HashiCorp Vault — designed dynamic secret policies, RBAC, and automated rotation across AI Core infrastructure.",
       "Owned Orca Security deployment for continuous CSPM across AWS and OpenStack, automating compliance checks and ensuring infrastructure integrity.",
       "Conducted threat modeling, vulnerability assessments, and hands-on incident triage using Splunk; automated IR playbooks to reduce mean-time-to-respond.",
+      "Built and maintained HyperSpace CI/CD pipelines using Azure DevOps, Jenkins, Go, Perforce, and Gerrit; optimized pipelines for a microservices monorepo on SAP Ariba.",
+      "Built API tooling using ABAP, CDS, and SAP CAP for SAP Business Data Cloud — delivered 3 customer-facing projects with full API lifecycle ownership.",
       "Developed Python CLI tools leveraging LLM APIs to automate security workflows, compliance reporting, and operational troubleshooting.",
       "Integrated Generative AI into DevOps workflows, reducing manual toil and accelerating engineering velocity.",
-    ],
-  },
-  {
-    role: "Scholar@SAP – VT/STAR Program",
-    company: "SAP Labs India",
-    period: "Aug 2021 – Mar 2024",
-    location: "Bangalore, India",
-    subtitle: "DevSecOps | DevOps | Cloud Integration | Agile Delivery",
-    bullets: [
-      "DevSecOps (AI Security & Cloud Ops): Managed multi-cloud environments (AWS, Docker, Kubernetes); responded to security incidents and automated governance tasks.",
-      "CI/CD Monitoring (SAP Tools): Built and maintained HyperSpace CI/CD pipelines using Azure DevOps, Jenkins, Splunk, Go, Perforce, and Gerrit.",
-      "DevOps (SAP Ariba): Optimized CI/CD pipelines in a microservices monorepo; improved build/test efficiency for a fast-moving Agile team.",
-      "Cloud Integration (SAP BTP): Built API tooling using ABAP, CDS, and SAP CAP — delivered 3 customer-facing projects with full API lifecycle ownership.",
+      "Managed multi-cloud environments (AWS, Docker, Kubernetes) across AI Security and Cloud Ops teams.",
     ],
   },
   {

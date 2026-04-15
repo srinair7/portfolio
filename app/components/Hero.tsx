@@ -68,7 +68,7 @@ export default function Hero() {
             marginBottom: "24px",
           }}
         >
-          DevOps Engineer · Security SME · AI Builder
+          Security Engineer · AI Builder · Product Thinker
         </h2>
 
         <p
@@ -82,8 +82,9 @@ export default function Hero() {
         >
           Based in Bangalore, India. I build secure, cloud-native infrastructure
           and AI-powered developer tools at SAP Labs. Regional Security Lead,
-          HashiCorp Vault &amp; Orca Security SME, and passionate about applying
-          Generative AI to real-world engineering problems.
+          hands-on AI builder, and product thinker — with experience spanning
+          cloud security, GenAI integration, and driving initiatives from
+          concept to delivery.
         </p>
 
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
