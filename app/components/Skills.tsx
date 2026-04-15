@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 const skillGroups = [
   {
     category: "Security",
@@ -7,7 +10,7 @@ const skillGroups = [
   {
     category: "AI / ML",
     icon: "🤖",
-    skills: ["LLM APIs", "Agentic AI", "LangChain", "Prompt Engineering", "MCP (Model Context Protocol)", "AIOps", "Model Red-Teaming", "RAG"],
+    skills: ["LLM APIs", "Agentic AI", "LangChain", "Prompt Engineering", "MCP", "AIOps", "Model Red-Teaming", "RAG"],
   },
   {
     category: "Cloud & Infrastructure",
@@ -37,10 +40,17 @@ export default function Skills() {
       id="skills"
       style={{ padding: "80px 24px", maxWidth: "1100px", margin: "0 auto" }}
     >
-      <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "12px", color: "#e2e8f0" }}>
-        Skills & Tools
-      </h2>
-      <div className="section-divider" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "12px", color: "#e2e8f0" }}>
+          Skills & Tools
+        </h2>
+        <div className="section-divider" />
+      </motion.div>
 
       <div
         style={{
@@ -49,35 +59,38 @@ export default function Skills() {
           gap: "20px",
         }}
       >
-        {skillGroups.map((group) => (
-          <div key={group.category} className="card" style={{ padding: "24px" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginBottom: "16px",
-              }}
-            >
-              <span style={{ fontSize: "1.4rem" }}>{group.icon}</span>
-              <h3
+        {skillGroups.map((group, i) => (
+          <motion.div
+            key={group.category}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08, duration: 0.5 }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="card"
+            style={{ padding: "24px" }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
+              <span
                 style={{
-                  fontSize: "1rem",
-                  fontWeight: 600,
-                  color: "#c084fc",
+                  fontSize: "1.3rem",
+                  background: "rgba(168,85,247,0.1)",
+                  borderRadius: "8px",
+                  padding: "6px 8px",
                 }}
               >
+                {group.icon}
+              </span>
+              <h3 style={{ fontSize: "0.95rem", fontWeight: 600, color: "#c084fc" }}>
                 {group.category}
               </h3>
             </div>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {group.skills.map((skill) => (
-                <span key={skill} className="tag">
-                  {skill}
-                </span>
+                <span key={skill} className="tag">{skill}</span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,3 +1,13 @@
+"use client";
+import { motion } from "framer-motion";
+
+const stats = [
+  { label: "Years Experience", value: "3+" },
+  { label: "Certifications", value: "5" },
+  { label: "Projects Shipped", value: "10+" },
+  { label: "Languages Spoken", value: "5" },
+];
+
 export default function Hero() {
   return (
     <section
@@ -12,30 +22,48 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Background glow */}
+      {/* Animated background glows */}
       <div
         style={{
           position: "absolute",
-          top: "20%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "600px",
-          height: "400px",
-          background:
-            "radial-gradient(ellipse, rgba(168,85,247,0.12) 0%, transparent 70%)",
+          top: "15%",
+          left: "30%",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(ellipse, rgba(168,85,247,0.1) 0%, transparent 70%)",
           pointerEvents: "none",
+          animation: "pulse 6s ease-in-out infinite",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          right: "20%",
+          width: "300px",
+          height: "300px",
+          background: "radial-gradient(ellipse, rgba(129,140,248,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+          animation: "pulse 8s ease-in-out infinite reverse",
         }}
       />
 
-      <div
-        style={{
-          maxWidth: "800px",
-          textAlign: "center",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <p
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        @keyframes fadeSlideUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: "800px", textAlign: "center", position: "relative", zIndex: 1 }}>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
           style={{
             color: "#a855f7",
             fontWeight: 600,
@@ -46,9 +74,12 @@ export default function Hero() {
           }}
         >
           Hi, I&apos;m
-        </p>
+        </motion.p>
 
-        <h1
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
             fontWeight: 800,
@@ -58,20 +89,26 @@ export default function Hero() {
           }}
         >
           Srikesh Rajesh Nair
-        </h1>
+        </motion.h1>
 
-        <h2
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="gradient-text"
           style={{
-            fontSize: "clamp(1.2rem, 3vw, 2rem)",
+            fontSize: "clamp(1.1rem, 2.5vw, 1.8rem)",
             fontWeight: 600,
             marginBottom: "24px",
           }}
         >
           Security Engineer · AI Builder · Product Thinker
-        </h2>
+        </motion.h2>
 
-        <p
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           style={{
             color: "#94a3b8",
             fontSize: "1.05rem",
@@ -85,45 +122,52 @@ export default function Hero() {
           hands-on AI builder, and product thinker — with experience spanning
           cloud security, GenAI integration, and driving initiatives from
           concept to delivery.
-        </p>
+        </motion.p>
 
-        <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="#projects" className="btn-primary">
-            View Projects
-          </a>
-          <a href="#contact" className="btn-outline">
-            Get in Touch
-          </a>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}
+        >
+          <a href="#projects" className="btn-primary">View Projects</a>
+          <a href="#contact" className="btn-outline">Get in Touch</a>
+        </motion.div>
 
-        <div
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           style={{
             marginTop: "60px",
             display: "flex",
             justifyContent: "center",
-            gap: "32px",
+            gap: "40px",
             flexWrap: "wrap",
+            padding: "28px 32px",
+            background: "rgba(168, 85, 247, 0.05)",
+            border: "1px solid rgba(168, 85, 247, 0.15)",
+            borderRadius: "16px",
           }}
         >
-          {[
-            { label: "Years Experience", value: "3+" },
-            { label: "Certifications", value: "5" },
-            { label: "Projects Shipped", value: "10+" },
-            { label: "Languages Spoken", value: "5" },
-          ].map((stat) => (
-            <div key={stat.label} style={{ textAlign: "center" }}>
-              <div
-                className="gradient-text"
-                style={{ fontSize: "2rem", fontWeight: 800 }}
-              >
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+              style={{ textAlign: "center" }}
+            >
+              <div className="gradient-text" style={{ fontSize: "2rem", fontWeight: 800 }}>
                 {stat.value}
               </div>
-              <div style={{ color: "#94a3b8", fontSize: "0.8rem", marginTop: "4px" }}>
+              <div style={{ color: "#64748b", fontSize: "0.78rem", marginTop: "4px" }}>
                 {stat.label}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
