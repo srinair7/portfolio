@@ -8,9 +8,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Srikesh Rajesh Nair — DevOps & AI Engineer",
+  title: "Srikesh Nair — Platform Engineer · AI Whisperer · Security Nerd",
   description:
-    "Personal portfolio of Srikesh Rajesh Nair — DevOps Engineer, Security SME, and AI enthusiast based in Bangalore, India.",
+    "Personal portfolio of Srikesh Nair — Platform Engineer, AI Whisperer, and Product Alchemist based in Bangalore, India.",
 };
 
 export default function RootLayout({

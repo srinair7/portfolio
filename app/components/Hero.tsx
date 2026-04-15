@@ -88,7 +88,7 @@ export default function Hero() {
             color: "#e2e8f0",
           }}
         >
-          Srikesh Rajesh Nair
+          Srikesh Nair
         </motion.h1>
 
         <motion.h2
@@ -102,7 +102,7 @@ export default function Hero() {
             marginBottom: "24px",
           }}
         >
-          Platform Engineer · AI Whisperer · Product Alchemist
+          Platform Engineer · AI Whisperer · Security Nerd
         </motion.h2>
 
         <motion.p
