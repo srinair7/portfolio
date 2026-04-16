@@ -41,9 +41,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.8, marginBottom: "32px" }}>
-            I&apos;m open to opportunities in Security Engineering, AI Engineering,
-            and Product Management. Whether you have a role, a project, or just
-            want to connect — feel free to reach out.
+            I&apos;m open to opportunities in DevOps, Security Engineering, and AI Engineering. Whether you have a role, a project, or just want to connect — feel free to reach out.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
             {contacts.map((c, i) => (
@@ -118,7 +116,7 @@ export default function Contact() {
           fontSize: "0.82rem",
         }}
       >
-        Built with Next.js & deployed on Vercel · © {new Date().getFullYear()} Srikesh Rajesh Nair
+        Built with Next.js & deployed on Vercel · © {new Date().getFullYear()} Srikesh Nair
       </div>
     </section>
   );
