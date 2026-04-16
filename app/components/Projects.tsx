@@ -8,9 +8,9 @@ const projects = [
     description:
       "Personal AI assistant powered by Claude with voice I/O, a web UI, and a Telegram bot. Built for real-world daily use with multi-modal interaction and persistent memory.",
     tags: ["Python", "Claude API", "Voice I/O", "Telegram Bot", "Web UI"],
-    status: "Active",
-    statusColor: "#4ade80",
-    statusBg: "rgba(34, 197, 94, 0.15)",
+    status: "In Progress",
+    statusColor: "#facc15",
+    statusBg: "rgba(234, 179, 8, 0.15)",
     github: "https://github.com/srinair7/aria",
     icon: "🤖",
     accent: "#a855f7",
