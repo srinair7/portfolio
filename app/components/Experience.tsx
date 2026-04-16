@@ -12,7 +12,7 @@ const experiences = [
       "Owned Orca Security deployment for continuous CSPM across AWS and OpenStack, automating compliance checks and ensuring infrastructure integrity.",
       "Conducted threat modeling, vulnerability assessments, and hands-on incident triage using Splunk; automated IR playbooks to reduce mean-time-to-respond.",
       "Built and maintained HyperSpace CI/CD pipelines using Azure DevOps, Jenkins, Go, Perforce, and Gerrit; optimized pipelines for a microservices monorepo on SAP Ariba.",
-      "Built API tooling using ABAP, CDS, and SAP CAP for SAP Business Data Cloud — delivered 3 customer-facing projects with full API lifecycle ownership.",
+      "Managed multi-cloud environments (AWS, Docker, Kubernetes) across AI Security and Cloud Ops teams.",
       "Developed Python CLI tools leveraging LLM APIs to automate security workflows, compliance reporting, and operational troubleshooting.",
       "Integrated Generative AI into DevOps workflows, reducing manual toil and accelerating engineering velocity.",
     ],
