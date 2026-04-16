@@ -11,7 +11,7 @@ const experiences = [
       "Subject Matter Expert for HashiCorp Vault — designed dynamic secret policies, RBAC, and automated rotation across AI Core infrastructure, securing secrets for 50+ AI microservices.",
       "Owned Orca Security deployment across 25+ cloud assets on AWS, Azure, GCP, and OpenStack; automated security incident detection and response, driving a ~40% reduction in incidents through security automation.",
       "Conducted threat modeling, vulnerability assessments, and hands-on incident triage using Splunk; automated IR playbooks significantly reducing mean-time-to-respond.",
-      "Built and maintained CI/CD pipelines serving 100–200 pipelines across an entire Line of Business using Azure DevOps, Jenkins, Go, Perforce, and Gerrit.",
+      "Built and maintained CI/CD pipelines serving 100–200 pipelines across an entire Line of Business using GitHub Actions, Jenkins, and Azure DevOps.",
       "Managed multi-cloud environments (AWS, Docker, Kubernetes) across AI Security and Cloud Ops teams.",
       "Developed Python CLI tools leveraging LLM APIs to automate log analysis, security workflows, and operational troubleshooting — reducing manual toil for the team.",
       "Integrating GenAI capabilities into the platform to make AI-assisted operations available org-wide, building on internal tooling that already accelerates incident response and log analysis.",
