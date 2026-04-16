@@ -117,11 +117,7 @@ export default function Hero() {
             margin: "0 auto 40px",
           }}
         >
-          Based in Bangalore, India. I build secure, cloud-native infrastructure
-          and AI-powered developer tools at SAP Labs. Regional Security Lead,
-          hands-on AI builder, and product thinker — with experience spanning
-          cloud security, GenAI integration, and driving initiatives from
-          concept to delivery.
+          Based in Bangalore, India. Platform engineer by day, AI tinkerer by night, and a security nerd always. I build cloud-native infrastructure and AI-powered tools at SAP Labs — and occasionally cause trouble in the best way possible.
         </motion.p>
 
         <motion.div
