@@ -20,59 +20,58 @@ export default function AbstractBackground() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Aurora blobs
-    type Blob = {
+    const PARTICLE_COUNT = 80;
+    type Particle = {
       x: number;
       y: number;
       vx: number;
       vy: number;
       radius: number;
-      r: number;
-      g: number;
-      b: number;
-      phase: number;
-      speed: number;
+      alpha: number;
     };
 
-    const blobs: Blob[] = [
-      { x: width * 0.2,  y: height * 0.3, vx: 0.15, vy: 0.08, radius: 380, r: 139, g: 92,  b: 246, phase: 0,    speed: 0.004 },
-      { x: width * 0.7,  y: height * 0.5, vx: -0.1, vy: 0.12, radius: 320, r: 99,  g: 102, b: 241, phase: 1.5,  speed: 0.003 },
-      { x: width * 0.5,  y: height * 0.7, vx: 0.08, vy: -0.1, radius: 350, r: 168, g: 85,  b: 247, phase: 3.0,  speed: 0.005 },
-      { x: width * 0.85, y: height * 0.2, vx: -0.12,vy: 0.09, radius: 280, r: 59,  g: 130, b: 246, phase: 0.8,  speed: 0.003 },
-      { x: width * 0.1,  y: height * 0.75,vx: 0.1,  vy: -0.07,radius: 300, r: 192, g: 132, b: 252, phase: 2.2,  speed: 0.004 },
-    ];
+    const particles: Particle[] = Array.from({ length: PARTICLE_COUNT }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: (Math.random() - 0.5) * 0.4,
+      radius: Math.random() * 2 + 0.5,
+      alpha: Math.random() * 0.5 + 0.1,
+    }));
 
-    let t = 0;
+    const MAX_DIST = 160;
 
     const draw = () => {
-      t += 0.005;
       ctx.clearRect(0, 0, width, height);
 
-      for (const blob of blobs) {
-        // Drift with sine wave for organic feel
-        blob.x += blob.vx + Math.sin(t + blob.phase) * 0.3;
-        blob.y += blob.vy + Math.cos(t + blob.phase * 0.7) * 0.2;
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+      }
 
-        // Bounce off edges softly
-        if (blob.x < -blob.radius) blob.x = width + blob.radius;
-        if (blob.x > width + blob.radius) blob.x = -blob.radius;
-        if (blob.y < -blob.radius) blob.y = height + blob.radius;
-        if (blob.y > height + blob.radius) blob.y = -blob.radius;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const opacity = (1 - dist / MAX_DIST) * 0.15;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(168, 85, 247, ${opacity})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
 
-        // Pulsing alpha
-        const alpha = 0.12 + Math.sin(t * 1.5 + blob.phase) * 0.04;
-
-        const gradient = ctx.createRadialGradient(
-          blob.x, blob.y, 0,
-          blob.x, blob.y, blob.radius
-        );
-        gradient.addColorStop(0, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${alpha})`);
-        gradient.addColorStop(0.5, `rgba(${blob.r}, ${blob.g}, ${blob.b}, ${alpha * 0.4})`);
-        gradient.addColorStop(1, `rgba(${blob.r}, ${blob.g}, ${blob.b}, 0)`);
-
+      for (const p of particles) {
         ctx.beginPath();
-        ctx.arc(blob.x, blob.y, blob.radius, 0, Math.PI * 2);
-        ctx.fillStyle = gradient;
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(192, 132, 252, ${p.alpha})`;
         ctx.fill();
       }
 
@@ -98,7 +97,6 @@ export default function AbstractBackground() {
         height: "100%",
         pointerEvents: "none",
         zIndex: 0,
-        filter: "blur(40px)",
       }}
     />
   );
