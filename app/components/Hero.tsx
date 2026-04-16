@@ -1,5 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import AbstractBackground from "./AbstractBackground";
 
 const stats = [
   { label: "Years Experience", value: "3+" },
@@ -9,8 +11,20 @@ const stats = [
 ];
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Parallax transforms
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+
   return (
     <section
+      ref={sectionRef}
       id="about"
       style={{
         minHeight: "100vh",
@@ -22,44 +36,55 @@ export default function Hero() {
         overflow: "hidden",
       }}
     >
-      {/* Animated background glows */}
-      <div
+      {/* Animated canvas background with parallax */}
+      <motion.div
         style={{
           position: "absolute",
-          top: "15%",
-          left: "30%",
+          inset: 0,
+          y: bgY,
+          zIndex: 0,
+        }}
+      >
+        <AbstractBackground />
+      </motion.div>
+
+      {/* Purple glow blobs */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "10%",
+          left: "20%",
           width: "500px",
           height: "500px",
-          background: "radial-gradient(ellipse, rgba(168,85,247,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(168,85,247,0.12) 0%, transparent 70%)",
           pointerEvents: "none",
-          animation: "pulse 6s ease-in-out infinite",
+          y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]),
         }}
       />
-      <div
+      <motion.div
         style={{
           position: "absolute",
-          bottom: "20%",
-          right: "20%",
-          width: "300px",
-          height: "300px",
-          background: "radial-gradient(ellipse, rgba(129,140,248,0.08) 0%, transparent 70%)",
+          bottom: "10%",
+          right: "15%",
+          width: "350px",
+          height: "350px",
+          background: "radial-gradient(ellipse, rgba(129,140,248,0.1) 0%, transparent 70%)",
           pointerEvents: "none",
-          animation: "pulse 8s ease-in-out infinite reverse",
+          y: useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]),
         }}
       />
 
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.1); opacity: 0.7; }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-
-      <div style={{ maxWidth: "800px", textAlign: "center", position: "relative", zIndex: 1 }}>
+      {/* Text content with parallax + fade */}
+      <motion.div
+        style={{
+          maxWidth: "800px",
+          textAlign: "center",
+          position: "relative",
+          zIndex: 1,
+          y: textY,
+          opacity,
+        }}
+      >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +142,7 @@ export default function Hero() {
             margin: "0 auto 40px",
           }}
         >
-          Based in Bangalore, India. Platform engineer by day, AI tinkerer by night, and a security nerd always. I build cloud-native infrastructure and AI-powered tools at SAP Labs — and occasionally cause trouble in the best way possible.
+          Platform engineer by day, AI tinkerer by night, and a security nerd always. I build cloud-native infrastructure and AI-powered tools at SAP Labs — and occasionally cause trouble in the best way possible.
         </motion.p>
 
         <motion.div
@@ -145,6 +170,7 @@ export default function Hero() {
             background: "rgba(168, 85, 247, 0.05)",
             border: "1px solid rgba(168, 85, 247, 0.15)",
             borderRadius: "16px",
+            backdropFilter: "blur(8px)",
           }}
         >
           {stats.map((stat, i) => (
@@ -164,7 +190,7 @@ export default function Hero() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const contacts = [
   { label: "Email", value: "srikesh_2000@live.com", href: "mailto:srikesh_2000@live.com", icon: "✉️" },
