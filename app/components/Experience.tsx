@@ -9,7 +9,7 @@ const experiences = [
     location: "Bangalore, India",
     bullets: [
       "Subject Matter Expert for HashiCorp Vault — designed dynamic secret policies, RBAC, and automated rotation across AI Core infrastructure, securing secrets for 50+ AI microservices.",
-      "Owned Orca Security deployment across 25+ cloud assets on AWS and OpenStack; automated compliance checks driving a ~40% reduction in security findings through continuous CSPM.",
+      "Owned Orca Security deployment across 25+ cloud assets on AWS and OpenStack; automated security incident detection and response, driving a ~40% reduction in incidents through security automation.",
       "Conducted threat modeling, vulnerability assessments, and hands-on incident triage using Splunk; automated IR playbooks significantly reducing mean-time-to-respond.",
       "Built and maintained CI/CD pipelines serving 100–200 pipelines across an entire Line of Business using Azure DevOps, Jenkins, Go, Perforce, and Gerrit.",
       "Managed multi-cloud environments (AWS, Docker, Kubernetes) across AI Security and Cloud Ops teams.",
