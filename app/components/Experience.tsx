@@ -14,7 +14,7 @@ const experiences = [
       "Built and maintained CI/CD pipelines serving 100–200 pipelines across an entire Line of Business using GitHub Actions, Jenkins, and Azure DevOps.",
       "Managed multi-cloud environments across AWS, GCP, and Azure using Docker and Kubernetes for AI Security and Cloud Ops teams.",
       "Developed Python CLI tools leveraging LLM APIs to automate log analysis, security workflows, and operational troubleshooting — reducing manual toil for the team.",
-      "Integrating GenAI capabilities into the platform to make AI-assisted operations available org-wide, building on internal tooling that already accelerates incident response and log analysis.",
+      "Building AI agents and MCP servers to automate DevOps workflows and reduce manual effort — currently integrating into the platform for org-wide availability.",
     ],
   },
   {
